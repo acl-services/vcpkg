@@ -1,6 +1,6 @@
 IF NOT "%1" == "SKIP_VCPKG" CALL bootstrap-vcpkg.bat
 
-SET packages=boost-format zlib protobuf json-spirit cryptopp
+SET packages=boost-format zlib protobuf json-spirit cryptopp icu
 
 SET VCPKG_DEFAULT_TRIPLET=x86-windows-mix
 
