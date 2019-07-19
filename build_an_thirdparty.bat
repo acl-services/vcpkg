@@ -17,7 +17,7 @@ SET packages=minizip boost-format protobuf json-spirit cryptopp icu zlib:x64-win
 SET VCPKG_DEFAULT_TRIPLET=x86-windows-mix
 
 echo Cleanup is %CLEANUP% 
-IF %CLEANUP% == "ON" call vcpkg.exe remove --recurse %packages%
+IF %CLEANUP% == "ON" call vcpkg.exe remove --recurse %packages% boost-vcpkg-helpers boost-build boost-modular-build-helper liblzma bzip2 zlib zstd
 
 echo vcpkg.exe install %packages%
 vcpkg.exe install %packages%
