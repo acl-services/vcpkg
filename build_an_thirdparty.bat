@@ -12,7 +12,7 @@ GOTO Loop
 @ECHO ON
 IF /I %SKIP_VCPKG% == "OFF" CALL bootstrap-vcpkg.bat
 
-SET packages=minizip boost-format protobuf json-spirit cryptopp icu zlib:x64-windows
+SET packages=minizip[core] boost-format protobuf json-spirit cryptopp icu zlib:x64-windows
 
 SET VCPKG_DEFAULT_TRIPLET=x86-windows-mix
 
