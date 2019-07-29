@@ -32,6 +32,6 @@ vcpkg.exe export --nuget --nuget-id=an-thirdparty --nuget-version="%PACKAGE_ID%"
 IF NOT "%BUILD_NUMBER%" == "" (
 aws s3 cp an-thirdparty.%PACKAGE_ID%.nupkg "s3://acl-rnd-artifacts/an_thirdpartylib/%git_local_branch%/an-thirdparty.%PACKAGE_ID%.nupkg"
 aws s3 sync installed/x86-windows-mix/bin "s3://acl-rnd-artifacts/an_thirdpartylib/%git_local_branch%/dlls/"
-aws s3 sync installed/x86-windows-mix/debug "s3://acl-rnd-artifacts/an_thirdpartylib/%git_local_branch%/dlls/"
+aws s3 sync installed/x86-windows-mix/debug/bin "s3://acl-rnd-artifacts/an_thirdpartylib/%git_local_branch%/debug_dlls/"
 aws s3 sync installed/x64-windows/bin "s3://acl-rnd-artifacts/an_thirdpartylib/%git_local_branch%/x64-dlls/"
 )
