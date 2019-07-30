@@ -9,10 +9,10 @@ SHIFT
 GOTO Loop
 
 :Continue
-IF "%AN_BRANCH%" == "" set AN_BRANCH = dev
-@ECHO ON
-IF /I %SKIP_VCPKG% == "OFF" CALL bootstrap-vcpkg.bat
 
+@ECHO ON
+IF "%AN_BRANCH%" == "" set AN_BRANCH=dev
+IF /I %SKIP_VCPKG% == "OFF" CALL bootstrap-vcpkg.bat
 
 SET packages=minizip[core] boost-format protobuf json-spirit cryptopp icu zlib:x64-windows
 
@@ -34,7 +34,7 @@ vcpkg.exe export --nuget --nuget-id=an-thirdparty --nuget-version="%PACKAGE_ID%"
 
 IF NOT "%BUILD_NUMBER%" == "" (
 aws s3 cp an-thirdparty.%PACKAGE_ID%.nupkg "s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/an-thirdparty.%PACKAGE_ID%.nupkg"
-aws s3 sync installed/x86-windows-mix/bin "s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/dlls/"
-aws s3 sync installed/x86-windows-mix/debug/bin "s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/debug_dlls/"
-aws s3 sync installed/x64-windows/bin "s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/x64-dlls/"
+aws s3 sync installed/x86-windows-mix/bin s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/dlls/
+aws s3 sync installed/x86-windows-mix/debug/bin s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/debug_dlls/
+aws s3 sync installed/x64-windows/bin s3://acl-rnd-artifacts/an_thirdpartylib/%AN_BRANCH%/x64-dlls/
 )
