@@ -28,7 +28,7 @@ vcpkg.exe install %packages%
 del /q an-thirdparty.*.nupkg
 
 REM bump version number when add/change setting
-SET PACKAGE_ID=14.0.9
+SET PACKAGE_ID=14.0.10
 
 vcpkg.exe export --nuget --nuget-id=an-thirdparty --nuget-version="%PACKAGE_ID%" %packages%
 
